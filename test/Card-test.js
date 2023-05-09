@@ -1,7 +1,8 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard } = require('../src/card');
+const { createCard, evaluateGuess } = require('../src/card');
+const { sampleData } = require('./prototype-data');
 
 describe('card', function() {
   it('should be a function', function() {
@@ -19,10 +20,10 @@ describe('card', function() {
 });
 
 describe('turn', function() {
-  it('should confirm if the guess if the correct answer', () => {
-    const card = createCard(3, "What type of prototype method directly modifies the existing array?", ["mutator method", "accessor method", "iteration method"], "mutator method");
-    const turn = evaluateGuess("mutator method", card);
-
-    expect(turn).to.equal('correct!')
+  it('should confirm if the guess is the correct answer', () => {
+    const card = createCard(sampleData.id, sampleData.question, sampleData.answers, sampleData.correctAnswer);
+    const turn = evaluateGuess("object", card);
+    
+    expect(turn).to.equal('correct!');
   });
 });
