@@ -23,7 +23,14 @@ describe('turn', function() {
   it('should confirm if the guess is the correct answer', () => {
     const card = createCard(sampleData.id, sampleData.question, sampleData.answers, sampleData.correctAnswer);
     const turn = evaluateGuess("object", card);
-    
+
     expect(turn).to.equal('correct!');
+  });
+
+  it('should confirm if the guess is incorrect', () => {
+    const card = createCard(sampleData.id, sampleData.question, sampleData.answers, sampleData.correctAnswer);
+    const turn = evaluateGuess("array", card);
+
+    expect(turn).to.equal('incorrect!');
   });
 });
