@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard, evaluateGuess } = require('../src/card');
+const { createCard, evaluateGuess, createDeck } = require('../src/card');
 const { sampleData } = require('./prototype-data');
 
 describe('card', function() {
@@ -19,9 +19,9 @@ describe('card', function() {
   });  
 });
 
-describe('turn', function() {
+describe('turn', () => {
   beforeEach(() => {
-    card = createCard(sampleData.id, sampleData.question, sampleData.answers, sampleData.correctAnswer);
+    card = createCard(sampleData[0].id, sampleData[0].question, sampleData[0].answers, sampleData[0].correctAnswer);
   });
 
   it('should confirm if the guess is the correct answer', () => {
@@ -34,5 +34,17 @@ describe('turn', function() {
     const turn = evaluateGuess("array", card);
 
     expect(turn).to.equal('incorrect!');
+  });
+});
+
+describe('deck', () => {
+  it('should be able to create a card deck', () => {
+    const card1 = createCard(sampleData[0].id, sampleData[0].question, sampleData[0].answers, sampleData[0].correctAnswer);
+    const card2 = createCard(sampleData[1].id, sampleData[1].question, sampleData[1].answers, sampleData[1].correctAnswer);
+    const card3 = createCard(sampleData[2].id, sampleData[2].question, sampleData[2].answers, sampleData[2].correctAnswer);
+
+    const deck = createDeck([card1, card2, card3])
+
+    expect(deck).to.have.lengthOf(3);
   });
 });
