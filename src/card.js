@@ -47,6 +47,10 @@ const calculatePercentCorrect = (round) => {
   return Math.floor(Math.ceil(correctGuesses / turns * 100));
 };
 
+const endRound = () => {
+
+};
+
 module.exports = {
   createCard, 
   evaluateGuess,
@@ -54,4 +58,5 @@ module.exports = {
   createRound,
   takeTurn,
   calculatePercentCorrect,
+  endRound
 }
