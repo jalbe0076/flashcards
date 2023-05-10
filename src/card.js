@@ -29,6 +29,7 @@ const createRound = (deck) => {
 
 const takeTurn = (answer, round) => {
   round.turns++;
+  round.currentCard = round.deck[round.turns];
   return round;
 };
 

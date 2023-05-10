@@ -52,7 +52,7 @@ describe('deck', () => {
 });
 
 describe('round', () => {
-  let card1, card2, card3, deck;
+  let card1, card2, card3, deck, round;
 
   beforeEach(() => {
     card1 = createCard(sampleData[0].id, sampleData[0].question, sampleData[0].answers, sampleData[0].correctAnswer);
@@ -60,37 +60,34 @@ describe('round', () => {
     card3 = createCard(sampleData[2].id, sampleData[2].question, sampleData[2].answers, sampleData[2].correctAnswer);
     
     deck = createDeck([card1, card2, card3]);
+    round = createRound(deck);
   });
 
   it('should be an object that holds onto the deck', () => {
-    const round = createRound(deck);
-
     expect(round.deck).to.equal(deck);
   });
 
   it('the current card should be the first card in the deck', () => {
-    const round = createRound(deck);
-
     expect(round.currentCard).to.equal(deck[0]);
   });
 
   it('should have the turn start at 0', () => {
-    const round = createRound(deck);
-
     expect(round.turns).to.equal(0);
   });
 
   it('should have an incorrect guess list', () => {
-    const round = createRound(deck);
-
-    expect(round.incorrectGuesses).to.be.deep.equal([]);
+     expect(round.incorrectGuesses).to.be.deep.equal([]);
   });
 
   it('should take turns', () => {
-    const round = createRound(deck);
-
     const turn = takeTurn('object', round);
 
     expect(round.turns).to.equal(1);
+  });
+
+  it('should change teh current card to the next one in the deck', () => {
+    const turn = takeTurn('object', round);
+
+    expect(round.currentCard).to.deep.equal(deck[1]);
   });
 });
