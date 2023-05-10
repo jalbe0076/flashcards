@@ -29,6 +29,9 @@ const createRound = (deck) => {
 
 const takeTurn = (answer, round) => {
   round.turns++;
+  if (answer !== round.correctAnswer) {
+    round.incorrectGuesses.push(round.currentCard.id);
+  }
   round.currentCard = round.deck[round.turns];
   return round;
 };

@@ -2,7 +2,7 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const { createCard, evaluateGuess, createDeck, createRound, takeTurn } = require('../src/card');
-const { sampleData } = require('./prototype-data');
+const { sampleData } = require('./sample-data');
 
 describe('card', function() {
   it('should be a function', function() {
@@ -83,6 +83,12 @@ describe('round', () => {
     const turn = takeTurn('object', round);
 
     expect(round.turns).to.equal(1);
+  });
+
+  it('should pass the card id to a list of incorect guesses', () => {
+    const turn = takeTurn('array', round);
+
+    expect(round.incorrectGuesses).to.be.deep.equal([1]);
   });
 
   it('should change teh current card to the next one in the deck', () => {
