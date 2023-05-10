@@ -72,5 +72,11 @@ describe('round', () => {
     const round = createRound(deck);
 
     expect(round.currentCard).to.deep.equal(deck[0]);
-  })
+  });
+
+  it('should have the turn start at 0', () => {
+    const round = createRound(deck);
+
+    expect(round.turns).to.equal(0);
+  });
 });
