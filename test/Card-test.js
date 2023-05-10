@@ -108,9 +108,9 @@ describe('round', () => {
     takeTurn('mutator method', round);
     takeTurn('accessor method', round);
 
-    const mark = calculatePercentCorrect(round);
+    const score = calculatePercentCorrect(round);
 
-    expect(mark).to.equal(67);
+    expect(score).to.equal(67);
   });
 
   it('should provide a message at the end of a round', () => {

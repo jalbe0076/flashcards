@@ -47,8 +47,11 @@ const calculatePercentCorrect = (round) => {
   return Math.floor(Math.ceil(correctGuesses / turns * 100));
 };
 
-const endRound = () => {
-
+const endRound = (round) => {
+  const score = calculatePercentCorrect(round);
+  if (round.turns === round.deck.length) {
+    return `** Round over! ** You answered ${score}% of the questions correctly!`;
+  }
 };
 
 module.exports = {
