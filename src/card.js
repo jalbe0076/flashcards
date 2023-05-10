@@ -18,8 +18,15 @@ const createDeck = (deck) => {
   return deck;
 };
 
+const createRound = (deck) => {
+  return {
+    deck: deck
+  };
+}
+
 module.exports = {
   createCard, 
   evaluateGuess,
   createDeck,
+  createRound,
 }
