@@ -20,7 +20,8 @@ const createDeck = (deck) => {
 
 const createRound = (deck) => {
   return {
-    deck: deck
+    deck: deck,
+    currentCard: deck[0]
   };
 }
 
