@@ -28,12 +28,15 @@ const createRound = (deck) => {
 };
 
 const takeTurn = (answer, round) => {
+  const guess = evaluateGuess(answer, round.currentCard);
   round.turns++;
-  if (answer !== round.correctAnswer) {
+
+  if (answer !== round.currentCard.correctAnswer) {
     round.incorrectGuesses.push(round.currentCard.id);
-  }
+  } 
+  
   round.currentCard = round.deck[round.turns];
-  return round;
+  return guess;
 };
 
 module.exports = {

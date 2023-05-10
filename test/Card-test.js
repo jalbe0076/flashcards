@@ -80,20 +80,30 @@ describe('round', () => {
   });
 
   it('should take turns', () => {
-    const turn = takeTurn('object', round);
-
+    takeTurn('object', round);
     expect(round.turns).to.equal(1);
   });
 
-  it('should pass the card id to a list of incorect guesses', () => {
+  it('should pass the card id to a list of incorrect guesses', () => {
     const turn = takeTurn('array', round);
 
     expect(round.incorrectGuesses).to.be.deep.equal([1]);
   });
 
-  it('should change teh current card to the next one in the deck', () => {
-    const turn = takeTurn('object', round);
-
+  it('should change the current card to the next one in the deck', () => {
+    takeTurn('object', round);
     expect(round.currentCard).to.deep.equal(deck[1]);
+  });
+
+  it('should check if the guess is correct or incorrect', () => {
+    const turn = takeTurn('object', round);
+    const turn2 = takeTurn('accessor method', round);
+
+    expect(turn).to.equal(`correct!`);
+    expect(turn2).to.equal(`incorrect!`);
+  });
+
+  it('should calculate the percentage of correct guesses', () => {
+    
   });
 });
