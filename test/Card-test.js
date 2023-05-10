@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard, evaluateGuess, createDeck, createRound, takeTurn } = require('../src/card');
+const { createCard, evaluateGuess, createDeck, createRound, takeTurn, calculatePercentCorrect } = require('../src/card');
 const { sampleData } = require('./sample-data');
 
 describe('card', function() {
@@ -76,7 +76,7 @@ describe('round', () => {
   });
 
   it('should have an incorrect guess list', () => {
-     expect(round.incorrectGuesses).to.be.deep.equal([]);
+     expect(round.incorrectGuesses).to.deep.equal([]);
   });
 
   it('should take turns', () => {
@@ -87,7 +87,7 @@ describe('round', () => {
   it('should pass the card id to a list of incorrect guesses', () => {
     const turn = takeTurn('array', round);
 
-    expect(round.incorrectGuesses).to.be.deep.equal([1]);
+    expect(round.incorrectGuesses).to.deep.equal([1]);
   });
 
   it('should change the current card to the next one in the deck', () => {
@@ -104,6 +104,12 @@ describe('round', () => {
   });
 
   it('should calculate the percentage of correct guesses', () => {
-    
+    takeTurn('object', round);
+    takeTurn('mutator method', round);
+    takeTurn('accessor method', round);
+
+    const mark = calculatePercentCorrect(round);
+
+    expect(mark).to.equal(67);
   });
 });

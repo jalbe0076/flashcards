@@ -34,9 +34,17 @@ const takeTurn = (answer, round) => {
   if (answer !== round.currentCard.correctAnswer) {
     round.incorrectGuesses.push(round.currentCard.id);
   } 
-  
+
   round.currentCard = round.deck[round.turns];
   return guess;
+};
+
+const calculatePercentCorrect = (round) => {
+  const turns = round.turns;
+  const wrongGuesses = round.incorrectGuesses.length;
+  const correctGuesses = turns - wrongGuesses;
+
+  return Math.floor(Math.ceil(correctGuesses / turns * 100));
 };
 
 module.exports = {
@@ -45,4 +53,5 @@ module.exports = {
   createDeck,
   createRound,
   takeTurn,
+  calculatePercentCorrect,
 }
