@@ -18,6 +18,10 @@ const createDeck = (deck) => {
   return deck;
 };
 
+const countCards = (deck) => {
+  return deck.length;
+}
+
 const createRound = (deck) => {
   return {
     deck: deck,
@@ -58,6 +62,7 @@ module.exports = {
   createCard, 
   evaluateGuess,
   createDeck,
+  countCards,
   createRound,
   takeTurn,
   calculatePercentCorrect,
