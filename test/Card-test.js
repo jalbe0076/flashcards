@@ -65,18 +65,24 @@ describe('round', () => {
   it('should be an object that holds onto the deck', () => {
     const round = createRound(deck);
 
-    expect(round.deck).to.deep.equal(deck);
+    expect(round.deck).to.equal(deck);
   });
 
   it('the current card should be the first card in the deck', () => {
     const round = createRound(deck);
 
-    expect(round.currentCard).to.deep.equal(deck[0]);
+    expect(round.currentCard).to.equal(deck[0]);
   });
 
   it('should have the turn start at 0', () => {
     const round = createRound(deck);
 
     expect(round.turns).to.equal(0);
+  });
+
+  it('should have an incorrect guess list', () => {
+    const round = createRound(deck);
+
+    expect(round.incorrectGuesses).to.be.deep.equal([]);
   });
 });

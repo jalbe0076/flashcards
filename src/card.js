@@ -22,7 +22,8 @@ const createRound = (deck) => {
   return {
     deck: deck,
     currentCard: deck[0],
-    turns: 0
+    turns: 0,
+    incorrectGuesses: []
   };
 }
 
