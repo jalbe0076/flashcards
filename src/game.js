@@ -19,4 +19,11 @@ const deckPile = (questionsList) => {
   return createDeck(cards);
 }; 
 
+const start = () => {
+  const deck = deckPile(prototypeQuestions);
+  const round = createRound(deck);
+  printMessage(deck);
+  printQuestion(round);
+}
+
 module.exports = { printMessage, printQuestion, start, deckPile };
