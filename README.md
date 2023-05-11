@@ -1,58 +1,36 @@
-# FlashCards Starter Kit
+ # Flashcards
 
-## Fork This Repo
+### Abstract:
+[//]: <> (Briefly describe what you built and its features. What problem is the app solving? How does this application solve that problem?)
+In this project, a program was written to simulate a set of flash cards through the command line. The user is prompted with a question relating to JavaScript along with a list of possible answers. The user takes guess, is informed if the response is correct or incorrect, and sees their final score at the end of the round. The program helps students study and reinforce their knowlege of JavaScript by testing their knowlege in the form of questions. 
 
-On the top right corner of this page, click the **Fork** button.
+### Installation Instructions:
+[//]: <> (What steps does a person have to take to get your app cloned down and running?)
+1. fork this repository https://github.com/jalbe0076/flashcards
+2. Clone down your new, forked repo using the generated SSH link in the terminal
+3. cd into the repository
+4. Run `node index.js` in your terminal to play Flashcards, follow terminal instructions
+5. Hit `control c` to abort
 
-## Setup
+### Preview of App:
+[//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off.)
+![App Preview Flashcards](./assets/flashcard-preview.gif)
 
-Clone down the forked repo (from your GitHub). Since you don't want to name your project "flashcards-starter", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments):
+### Context:
+[//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
+The project was assigned on 2023.05.08 in the first week of Turing's Module 2. All required features were completed by 2023.05.11, and the project works and responds as intended. The project took around 10 hours to complete.  
 
-```bash
-git clone [remote-address] [what you want to name the repo]
-```
+### Contributors:
+[//]: <> (Who worked on this application? Link to their GitHubs.)
+[Jason Alberto](https://github.com/jalbe0076) worked on this application. 
 
-Once you have cloned the repo, change into the directory and install the library dependencies using the command:
+### Learning Goals:
+[//]: <> (What were the learning goals of this project? What tech did you work with?)
+The project's learning goals were to gain `TDD` (Test Driven Development / Design) experience by writing tests using the Mocha framework and Chai as the assertion library.
 
-```bash
-npm install
-```
-
-To verify that it is setup correctly, run `npm test` in your terminal. You should have skipped tests in your `card` test file show up.
-
-Running `node index.js` from the root of your project should result in the following message being displayed in your terminal: 
-
-```bash
-Your project is running...
-```
-
-*Note that you will not need to you run this file until you are running your `game` file in Iteration 3. Prior to that, you should strive to use TDD to drive your code. You should check the functionality of your application by running your tests via `npm test`.*
-
-
-## Where to Add Your Code
-
-**Create all of your feature code files in the `src` directory.** Use the `module.exports` and `require` syntax to share code across files.
-
-## How to View Your Code in Action
-
-Once you are working through Iteration 3, you will want to run the `node index.js` command in your terminal to run the game.
-
-When the game is functioning appropriately, you will be prompted for each question, have the opportunity to select an answer, and will be given feedback. You will be able to play through the entire deck of cards:
-
-![flash cards example gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
-
----
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `card-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
+### Wins + Challenges:
+[//]: <> (What are 2-3 wins you have from this project? What were some challenges you faced - and how did you get over them?)
+Win#1: Having a better understanding of how to implement `TDD`.
+Win#2: Researched and implemented Mocha’s `beforeEach` hook to DRY up code.
+A challenge was learning how to have `beforeEach`scoped inside the describe block. This was overcome by researching and reading on the net.
+Another challenge was debugging imports, this was overcome by analyzing the error prompt to understand what file/files were triggering the error message.
