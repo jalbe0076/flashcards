@@ -14,4 +14,9 @@ function printQuestion(round) {
   util.main(round);
 }
 
-module.exports = { printMessage, printQuestion, start };
+const deckPile = (questionsList) => {
+  const cards = questionsList.map(card => createCard(card.id, card.question, card.answers, card.correctAnswer));
+  return createDeck(cards);
+}; 
+
+module.exports = { printMessage, printQuestion, start, deckPile };
