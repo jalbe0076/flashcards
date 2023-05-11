@@ -1,7 +1,10 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard, evaluateGuess, createDeck, createRound, takeTurn, calculatePercentCorrect, endRound, countCards } = require('../src/card');
+const { createCard } = require('../src/card');
+const { evaluateGuess } = require('../src/turns');
+const { createDeck, countCards } = require('../src/deck');
+const { createRound, takeTurn, calculatePercentCorrect, endRound } = require('../src/round');
 const { sampleData } = require('./sample-data');
 
 describe('card', function() {
@@ -56,6 +59,7 @@ describe('deck', () => {
 
   it('should be able to count the cards in a deck', () => {
     const numberOfCards = countCards(deck);
+    
     expect(numberOfCards).to.equal(3);
   });
 });
@@ -101,7 +105,7 @@ describe('round', () => {
 
   it('should change the current card to the next one in the deck', () => {
     takeTurn('object', round);
-    expect(round.currentCard).to.deep.equal(deck[1]);
+    expect(round.currentCard).to.deep.equal(card2);
   });
 
   it('should check if the guess is correct or incorrect', () => {
